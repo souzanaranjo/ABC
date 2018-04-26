@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>ABC</title>
+	<meta charset="UTF-8">
+	<link rel="stylesheet" type="text/css" href="css/index.css">
+	<!-- Latest compiled and minified CSS -->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+</head>
+<body>
+	<div class='center'>
+		<h1>Calcula tu abcabc</h1>
+		<div>
+			Campo a:
+			<input class="inputcalcula" placeholder="Ingresa a..." id="a" type="number">
+			Campo b:
+			<input class="inputcalcula placeholder="Ingresa b..." id="b" type="number">
+		</div>
+		<div>
+			Campo c:
+			<input class="inputcalcula placeholder="Ingresa a..." id="c" type="number">
+			Campo d:
+			<input class="inputcalcula placeholder="Ingresa b..." id="d" type="number">
+		</div>
+		<button class="center btn btn-success">Calcula</button>
+		<p class="center res">Tu abcabc es 0.0</p>
+		<legend>Selecciona el elemento a buscar</legend>
+		<div class="center sel">
+			<select class="selectpicker">
+			  <optgroup label="Herramientas">
+			    <option>Desarmador</option>
+			    <option>Martillo</option>
+			    <option>Sierra</option>
+			  </optgroup>
+			  <optgroup label="Máquinas">
+			    <option>Mezcladora</option>
+			    <option>Horno</option>
+			    <option>Impresora</option>
+			  </optgroup>
+			</select>
+		</div>
+		<div id="map"></div>
+	</div>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+	<script type="text/javascript" src="js/index.js"></script>
+	<script async defer
+    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCPkWmUcfyfhk6qY9AlRnxfutGMI_nYtRA&callback=initMap">
+    </script>
+</body>
+</html>

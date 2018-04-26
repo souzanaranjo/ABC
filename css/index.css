@@ -1,0 +1,19 @@
+.center {
+	text-align: center;
+}
+
+.inputcalcula {
+	width: 20%;
+	margin: 20px;
+}
+
+.res, .sel {
+	margin: 20px;
+}
+
+
+#map {
+        width: 100%;
+        height: 400px;
+        background-color: grey;
+      }
