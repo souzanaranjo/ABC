@@ -7,13 +7,34 @@
 	margin: 20px;
 }
 
+.botonesmapa {
+	margin-right: 35px;
+}
+
+
+#Ubicacion {
+
+}
+
 .res, .sel {
 	margin: 20px;
 }
 
+.map{
+	width: 90%;
+	margin-left: 5%;
+	margin-top: 30px;
+}
 
 #map {
-        width: 90%;
-        height: 500px;
-        background-color: grey;
-      }
+    height: 500px;
+    background-color: grey;
+}
+
+.lielem {
+	margin-right: 100px;
+}
+
+.hiddenSection{
+	display: none;
+}

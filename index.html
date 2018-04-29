@@ -6,9 +6,28 @@
 	<link rel="stylesheet" type="text/css" href="css/index.css">
 	<!-- Latest compiled and minified CSS -->
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+
 </head>
 <body>
-	<div class='center'>
+	<nav class="navbar navbar-inverse">
+	  <div class="container-fluid">
+	    <div class="navbar-header">
+	      <a class="navbar-brand" href="#">Proyecto Conexion</a>
+	    </div>
+	    <ul id="navprincipal" class="nav navbar-nav">
+	      <li class="Inicio active selected"><a href="#">Inicio</a></li>
+	      <li class="Calculadora"><a href="#">Calculadora</a></li>
+	      <li class="Ubicacion"><a href="#">Ubicacion</a></li>
+	      <li class="Contacto"><a href="#">Contacto</a></li>
+	      <li class="Informacion"><a  href="#">Informacion</a></li>
+	    </ul>
+	  </div>
+	</nav>
+
+	<div id="Inicio" class='center currentSelection'>
+	</div>
+
+	<div class="center hiddenSection" id="Calculadora">
 		<h1>Calcula tu abcabc</h1>
 		<div>
 			Campo a:
@@ -24,37 +43,115 @@
 		</div>
 		<button class="center btn btn-success">Calcula</button>
 		<p class="center res">Tu abcabc es 0.0</p>
-		<legend>Selecciona el elemento a buscar</legend>
-		<div class="center sel">
-			<select class="selectpicker">
-			  <optgroup label="Herramientas">
-			    <option>Desarmador</option>
-			    <option>Martillo</option>
-			    <option>Sierra</option>
-			  </optgroup>
-			  <optgroup label="Máquinas">
-			    <option>Mezcladora</option>
-			    <option>Horno</option>
-			    <option>Impresora</option>
-			  </optgroup>
-			</select>
-		</div>
-		<div class="center" style="margin-left: 5%" id="map"></div>
 	</div>
 
-	<!--Inicia Modal de información de pins -->
-	<div id="myModal">
-		<div class="modal-content2">
-			<div class="modal-header">
-			  <span id="closeModal" class="close">&times;</span>
-			  <h2 class="center" id="headerModal"></h2>
-			</div>
-			<div class="modal-body">
-			  <p id="modalText"></p>  
-			</div>  
+	<div class="center hiddenSection" id="Ubicacion">
+		<h1 style="margin-bottom: 50px">Dónde encontrar lo que buscas?</h1>
+		
+		<button class="btn btn-primary botonesmapa">Maquinaria</button>
+		<button class="btn btn-primary botonesmapa">Herramientas</button>
+		<button class="btn btn-primary botonesmapa" onclick="graficaFabricacion()">Fabricación y producción</button>
+		<button class="btn btn-primary botonesmapa">Pendiente</button>
+		
+
+		<div class="map" id="map"></div>
+
+		<!--Inicia Modal de información de pins -->
+		<div id="myModal">
+			<div class="modal-content2">
+				<div class="modal-header">
+				  
+				</div>
+				<div class="modal-body">
+				  <span id="closeModal" class="close">&times;</span>
+				  <h1 id="headerModal"></h1>
+				  <p id="modalText"></p>  
+				</div>  
 		</div>
 	</div> 
 	<!--Termina Modal de información de pins-->
+	</div>
+
+	<div class="hiddenSection" id="Contacto">
+	</div>
+
+	<div class="center hiddenSection" id="Informacion">
+		<h1>Conoce más del tema</h1>
+		<legend>Qué es fresado?</legend>
+		<div>
+			<p style="padding: 50px; font-size: 1.2em">El fresado consiste principalmente en el corte del material que se mecaniza con una herramienta rotativa de varios filos, que se llaman dientes, labios o plaquitas de metal duro, que ejecuta movimientos en casi cualquier dirección de los tres ejes posibles en los que se puede desplazar la mesa donde va fijada la pieza que se mecaniza.
+			Con el uso creciente de las fresadoras de control numérico están aumentando las operaciones de fresado que se pueden realizar con este tipo de máquinas, siendo así que el fresado se ha convertido en un método polivalente de mecanizado. El desarrollo de las herramientas ha contribuido también a crear nuevas posibilidades de fresado además de incrementar de forma considerable la productividad, la calidad y exactitud de las operaciones realizadas.</p>
+		</div>
+		<legend>Qué es torneado?</legend>
+		<div>
+			<p style="padding: 50px; font-size: 1.2em">El torneado es un proceso de mecanizado utilizado para hacer piezas cilíndricas, en el cual la herramienta de corte se mueve de forma lineal mientras la pieza de trabajo gira. Comúnmente realizado con un torno, el torneado reduce el diámetro de una pieza de trabajo, por lo general a una dimensión especificada, y le da un acabado liso a la pieza. Un centro de torneado es un torno con un control numérico computarizado. Los centros de torneado sofisticados también pueden realizar una gran variedad de operaciones de fresado y taladrado.</p>
+		</div>
+		<legend>Códigos G y M</legend>
+		<div class="col-xs-6">
+			<h4>Codigos G</h4>
+			<div style="text-align: left">
+			<p><b>G00</b>	Movimiento rápido de posicionamiento</p>
+			<p><b>G01</b>	Interpolación lineal</p>
+			<p><b>G02</b>     Interpolación circular a favor de las manecillas del reloj “R” I, J, K</p>
+			<p><b>G03</b>   	Interpolación circular en sentido opuesto de las manecillas del reloj “R” I, J, K</p>
+			<p><b>G04</b>   	Tiempo de espera P(segundos)</p>
+			<p><b>G17</b>	Selección del plano XY</p>
+			<p><b>G18</b>	Selección del plano ZX</p>
+			<p><b>G19</b>	Selección del plano YZ</p>
+			<p><b>G20</b>	Entrada datos (pulgadas)</p>
+			<p><b>G21</b>   	Entrada datos (mm)</p>
+			<p><b>G28 </b>   Movimiento a la posición referencia (home)</p>
+			<p><b>G29</b>	Regreso al último punto de trabajo (de home al último punto)</p>
+			<p><b>G40</b>	Cancela la compensación en diámetro</p>
+			<p><b>G41</b>	Compensación a la izquierda del cortador</p>
+			<p><b>G42</b>	Compensación a la derecha del cortador</p>
+			<p><b>G43</b>  	Compensación de la herramienta en altura (fresadora)</p>
+			<p><b>G49</b>	Cancela compensación longitudinal del cortador</p>
+			<p><b>G53</b>	Programación respecto al cero de maquina</p>
+			<p><b>G54</b>   	Activa el cero de pieza</p>
+			<p><b>G55</b>	Activa el cero de pieza</p>
+			<p><b>G56</b>	Activa el cero de pieza</p>
+			<p><b>G57</b>	Activa el cero de pieza</p>
+			<p><b>G58</b>	Activa el cero de pieza</p>
+			<p><b>G59</b>	Activa el cero de pieza</p>
+			<p><b>G73</b>	Ciclo de taladrado con retracción incremental (X Y Z R Q F)</p>
+			<p><b>G80</b>	Cancela los ciclos de taladrado (G81, G82, G83 y G73) (X Y Z R Q F)</p>
+			<p><b>G81</b>	Ciclo de taladrado (Baja como G01 y regresa con un G00) (X Y Z R F)</p>
+			<p><b>G82</b>	Ciclo de taladrado con pausa (para remover la viruta) (X Y Z R P F)</p>
+			<p><b>G83</b>	Ciclo de taladrado profundo (X Y Z R Q F)</p>
+			<p><b>G84</b>	Ciclo de machuelado (rosca) A favor de las manecillas del reloj cuando entra y después en contra para salir (X Y Z R F)</p>
+			<p><b>G90</b>   	Activación del valor absoluto</p>
+			<p><b>G91</b>   	Activación del valor incremental</p>
+			<p><b>G94</b>	Avance en mm/min</p>
+			<p><b>G98</b>	Retorno a un punto inicial correspondiente a un ciclo determinado </p>
+			<p><b>G99</b>	Retorno al punto de retroceso de un ciclo determinado</p>
+			</div>
+		</div>
+		<div class="col-xs-6">
+			<h4>Codigos M</h4>
+			<div style="text-align: left">
+				<p><b>M00</b>    Paro incondicional del programa</p>
+				<p><b>M01</b>    Paro opcional del programa</p>
+				<p><b>M03</b>    Giro del husillo (S) A favor de las manecillas</p>
+				<p><b>M04</b>    Giro del husillo (S) En contra de las manecillas</p>
+				<p><b>M05</b>    Paro del husillo</p>
+				<p><b>M06</b>    Cambio de la herramienta</p>
+				<p><b>M08</b>     Encender refrigerante</p>
+				<p><b>M09</b>   Apagar refrigerante</p>
+				<p><b>M02 / M30</b>   Fin del programa</p>
+				<p><b>M47</b>   Abrir puerta</p>
+				<p><b>M46</b>   Cerrar puerta</p>
+				<p><b>M41</b>   Abrir prensa</p>
+				<p><b>M40</b>   Cerrar prensa</p>
+				<p><b>M98</b>   Llamar a subprograma externo</p>
+				<p><b>M97</b>   Llamar a subprograma local</p>
+				<p><b>M99</b>   Regreso a programa principal</p>
+			</div>
+		</div>
+		
+	</div>
+
+	
 
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 	<script type="text/javascript" src="js/index.js"></script>
