@@ -14,13 +14,13 @@
 			Campo a:
 			<input class="inputcalcula" placeholder="Ingresa a..." id="a" type="number">
 			Campo b:
-			<input class="inputcalcula placeholder="Ingresa b..." id="b" type="number">
+			<input class="inputcalcula" placeholder="Ingresa b..." id="b" type="number">
 		</div>
 		<div>
 			Campo c:
-			<input class="inputcalcula placeholder="Ingresa a..." id="c" type="number">
+			<input class="inputcalcula" placeholder="Ingresa a..." id="c" type="number">
 			Campo d:
-			<input class="inputcalcula placeholder="Ingresa b..." id="d" type="number">
+			<input class="inputcalcula" placeholder="Ingresa b..." id="d" type="number">
 		</div>
 		<button class="center btn btn-success">Calcula</button>
 		<p class="center res">Tu abcabc es 0.0</p>
@@ -39,12 +39,27 @@
 			  </optgroup>
 			</select>
 		</div>
-		<div id="map"></div>
+		<div class="center" style="margin-left: 5%" id="map"></div>
 	</div>
+
+	<!--Inicia Modal de información de pins -->
+	<div id="myModal">
+		<div class="modal-content2">
+			<div class="modal-header">
+			  <span id="closeModal" class="close">&times;</span>
+			  <h2 class="center" id="headerModal"></h2>
+			</div>
+			<div class="modal-body">
+			  <p id="modalText"></p>  
+			</div>  
+		</div>
+	</div> 
+	<!--Termina Modal de información de pins-->
+
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 	<script type="text/javascript" src="js/index.js"></script>
-	<script async defer
-    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCPkWmUcfyfhk6qY9AlRnxfutGMI_nYtRA&callback=initMap">
+	<script
+    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCPkWmUcfyfhk6qY9AlRnxfutGMI_nYtRA">
     </script>
 </body>
 </html>
