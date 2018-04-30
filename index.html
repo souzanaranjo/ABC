@@ -9,47 +9,102 @@
 
 </head>
 <body>
-	<nav class="navbar navbar-inverse">
+	<nav class="navbar navbar-inverse" style="margin: 0">
 	  <div class="container-fluid">
 	    <div class="navbar-header">
 	      <a class="navbar-brand" href="#">Proyecto Conexion</a>
 	    </div>
-	    <ul id="navprincipal" class="nav navbar-nav">
+	    <ul id="navprincipal" class="nav navbar-nav" style="font-size: 1.3em">
 	      <li class="Inicio active selected"><a href="#">Inicio</a></li>
 	      <li class="Calculadora"><a href="#">Calculadora</a></li>
 	      <li class="Ubicacion"><a href="#">Ubicacion</a></li>
-	      <li class="Contacto"><a href="#">Contacto</a></li>
 	      <li class="Informacion"><a  href="#">Informacion</a></li>
+	      <li class="Contacto"><a href="#">Contacto</a></li>
 	    </ul>
 	  </div>
 	</nav>
 
 	<div id="Inicio" class='center currentSelection'>
+		<div class="container" style="width: 100%; margin: 0px; padding: 0">
+		  <div id="myCarousel" class="carousel slide" data-ride="carousel">
+		    <!-- Indicators -->
+		    <ol class="carousel-indicators">
+		      <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+		      <li data-target="#myCarousel" data-slide-to="1"></li>
+		      <li data-target="#myCarousel" data-slide-to="2"></li>
+		      <li data-target="#myCarousel" data-slide-to="3"></li>
+
+		    </ol>
+
+		    <!-- Wrapper for slides -->
+		    <div class="carousel-inner">
+		      <div class="item active">
+		        <img src="images/FRESADO1.jpg" alt="Fresado 1" style="width:100%;">
+		      </div>
+
+		      <div class="item">
+		        <img src="images/FRESADO2.jpg" alt="Fresado 2" style="width:100%;">
+		      </div>
+		    
+		      <div class="item">
+		        <img src="images/FRESADO3.jpg" alt="Fresado 3" style="width:100%;">
+		      </div>
+
+		      <div class="item">
+		        <img src="images/FRESADO5.jpg" alt="Fresado 4" style="width:100%;">
+		      </div>
+
+		    </div>
+
+		    <!-- Left and right controls -->
+		    <a class="left carousel-control" href="#myCarousel" data-slide="prev">
+		      <span class="glyphicon glyphicon-chevron-left"></span>
+		      <span class="sr-only">Previous</span>
+		    </a>
+		    <a class="right carousel-control" href="#myCarousel" data-slide="next">
+		      <span class="glyphicon glyphicon-chevron-right"></span>
+		      <span class="sr-only">Next</span>
+		    </a>
+		  </div>
+		</div>
 	</div>
 
 	<div class="center hiddenSection" id="Calculadora">
-		<h1>Calcula tu abcabc</h1>
-		<div>
-			Campo a:
-			<input class="inputcalcula" placeholder="Ingresa a..." id="a" type="number">
-			Campo b:
-			<input class="inputcalcula" placeholder="Ingresa b..." id="b" type="number">
+		<h1>Calcula</h1>
+		<legend>Qué quieres calcular?</legend>
+		<button class="btn btn-default botonesmapa" onclick="rpm()">Revoluciones por minuto</button>
+		<button class="btn btn-default botonesmapa" onclick="vc()">Velocidad de corte</button>
+
+
+		<div id="rpm" style="margin-top: 30px" class="hiddenSection">
+			<legend>Calculo de Revoluciones por minuto</legend>
+			Diametro:
+			<input class="inputcalcula" placeholder="Diametro en milimetros..." id="diametroa" type="number">
+			Velocidad de corte:
+			<input class="inputcalcula" placeholder="Velocidad de corte en metros sobre minuto..." id="inputvc" type="number">
+			<br />
+			<button class="center btn btn-success" onclick="calcularpm()">Calcula</button>
+			<p id="resultadoa" class="center res"></p>
 		</div>
-		<div>
-			Campo c:
-			<input class="inputcalcula" placeholder="Ingresa a..." id="c" type="number">
-			Campo d:
-			<input class="inputcalcula" placeholder="Ingresa b..." id="d" type="number">
+
+		<div id="vc" style="margin-top: 30px" class="hiddenSection">
+			<legend>Calculo de Velocidad de corte</legend>
+			Diametro:
+			<input class="inputcalcula" placeholder="Diametro en milimetros..." id="diametrob" type="number">
+			Revoluciones por minuto:
+			<input class="inputcalcula" placeholder="Revoluciones por minuto..." id="inputrpm" type="number">
+			<br />
+			<button class="center btn btn-success" onclick="calculavc()">Calcula</button>
+			<p id="resultadob" class="center res"></p>
 		</div>
-		<button class="center btn btn-success">Calcula</button>
-		<p class="center res">Tu abcabc es 0.0</p>
+		
 	</div>
 
 	<div class="center hiddenSection" id="Ubicacion">
 		<h1 style="margin-bottom: 50px">Dónde encontrar lo que buscas?</h1>
 		
-		<button class="btn btn-primary botonesmapa">Maquinaria</button>
-		<button class="btn btn-primary botonesmapa">Herramientas</button>
+		<button class="btn btn-primary botonesmapa" onclick="graficaMaquinaria()">Maquinaria</button>
+		<button class="btn btn-primary botonesmapa" onclick="graficaHerramientas()">Herramientas</button>
 		<button class="btn btn-primary botonesmapa" onclick="graficaFabricacion()">Fabricación y producción</button>
 		<button class="btn btn-primary botonesmapa">Pendiente</button>
 		
@@ -72,9 +127,6 @@
 	<!--Termina Modal de información de pins-->
 	</div>
 
-	<div class="hiddenSection" id="Contacto">
-	</div>
-
 	<div class="center hiddenSection" id="Informacion">
 		<h1>Conoce más del tema</h1>
 		<legend>Qué es fresado?</legend>
@@ -89,7 +141,7 @@
 		<legend>Códigos G y M</legend>
 		<div class="col-xs-6">
 			<h4>Codigos G</h4>
-			<div style="text-align: left">
+			<div style="text-align: left; margin-top: 30px; margin: 20px">
 			<p><b>G00</b>	Movimiento rápido de posicionamiento</p>
 			<p><b>G01</b>	Interpolación lineal</p>
 			<p><b>G02</b>     Interpolación circular a favor de las manecillas del reloj “R” I, J, K</p>
@@ -119,7 +171,7 @@
 			<p><b>G81</b>	Ciclo de taladrado (Baja como G01 y regresa con un G00) (X Y Z R F)</p>
 			<p><b>G82</b>	Ciclo de taladrado con pausa (para remover la viruta) (X Y Z R P F)</p>
 			<p><b>G83</b>	Ciclo de taladrado profundo (X Y Z R Q F)</p>
-			<p><b>G84</b>	Ciclo de machuelado (rosca) A favor de las manecillas del reloj cuando entra y después en contra para salir (X Y Z R F)</p>
+			<p><b>G84</b>	Ciclo de machuelado (rosca) a favor de las manecillas</p>
 			<p><b>G90</b>   	Activación del valor absoluto</p>
 			<p><b>G91</b>   	Activación del valor incremental</p>
 			<p><b>G94</b>	Avance en mm/min</p>
@@ -129,7 +181,7 @@
 		</div>
 		<div class="col-xs-6">
 			<h4>Codigos M</h4>
-			<div style="text-align: left">
+			<div style="text-align: left; margin-top: 30px; margin: 20px">
 				<p><b>M00</b>    Paro incondicional del programa</p>
 				<p><b>M01</b>    Paro opcional del programa</p>
 				<p><b>M03</b>    Giro del husillo (S) A favor de las manecillas</p>
@@ -148,11 +200,56 @@
 				<p><b>M99</b>   Regreso a programa principal</p>
 			</div>
 		</div>
+	</div>
+
+	<div class="hiddenSection center" id="Contacto">
+		<h1>Contacto</h1>
+		<br>
+		<br>
+
+		<span class="center card" style="width: 18rem;">
+		  <div class="card-body">
+		    <h5 class="card-title">Luis Graniel</h5>
+		    <h6 class="card-subtitle mb-2 text-muted">A00819526@itesm.mx</h6>
+		    <p class="card-text">Estudiante de 6to semestre de Ingenieria Industrial y de Sistemas</p>
+		  </div>
+		</span>
+
+		<span class="card" style="width: 18rem;">
+		  <div class="card-body">
+		    <h5 class="card-title">David Souza</h5>
+		    <h6 class="card-subtitle mb-2 text-muted">A00818141@itesm.mx</h6>
+		    <p class="card-text">Estudiante de 6to semestre de Ingenieria en Tecnologías Computacionales</p>
+		  </div>
+		</span>
+
+		<span class="card" style="width: 18rem;">
+		  <div class="card-body">
+		    <h5 class="card-title">Mariana Sada</h5>
+		    <h6 class="card-subtitle mb-2 text-muted">A01192927@itesm.mx</h6>
+		    <p class="card-text">Estudiante de 6to semestre de Ingenieria Industrial y de Sistemas</p>
+		  </div>
+		</span>
+
+		<span class="card" style="width: 18rem;">
+		  <div class="card-body">
+		    <h5 class="card-title">Tadeo Peralta</h5>
+		    <h6 class="card-subtitle mb-2 text-muted">A00960169@itesm.mx</h6>
+		    <p class="card-text">Estudiante de 9no semestre de Ingenieria Industrial y de Sistemas</p>
+		  </div>
+		</span>
+
+		<!-- <p class="nombreContacto"><b>Mariana Sada</b></p>
+		<p class="correoContacto">Correo: A01192927@itesm.mx</p>
+
+		<p class="nombreContacto"><b>Tadeo Peralta</b></p>
+		<p class="correoContacto">Correo: A00960169@itesm.mx</p> -->
 		
 	</div>
 
 	
-
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 	<script type="text/javascript" src="js/index.js"></script>
 	<script

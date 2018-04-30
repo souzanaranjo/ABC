@@ -2,6 +2,27 @@
 	text-align: center;
 }
 
+#myCarousel {
+	width: 100%;
+}
+
+.card-body {
+	margin-left: 40%;
+	margin-right: 40%;
+	margin-bottom: 40px;
+	float: center;
+	border: 1px solid green;
+}
+
+.nombreContacto {
+	font-size: 1.5em;
+}
+
+.correoContacto {
+	font-size: 1.3em;
+	margin-bottom: 30px
+}
+
 .inputcalcula {
 	width: 20%;
 	margin: 20px;
@@ -11,10 +32,6 @@
 	margin-right: 35px;
 }
 
-
-#Ubicacion {
-
-}
 
 .res, .sel {
 	margin: 20px;
