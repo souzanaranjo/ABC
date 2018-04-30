@@ -106,7 +106,7 @@
 		<button class="btn btn-primary botonesmapa" onclick="graficaMaquinaria()">Maquinaria</button>
 		<button class="btn btn-primary botonesmapa" onclick="graficaHerramientas()">Herramientas</button>
 		<button class="btn btn-primary botonesmapa" onclick="graficaFabricacion()">Fabricación y producción</button>
-		<button class="btn btn-primary botonesmapa">Pendiente</button>
+		<button class="btn btn-primary botonesmapa" onclick="graficaMetodos()">Métodos de sujeción</button>
 		
 
 		<div class="map" id="map"></div>
@@ -127,78 +127,111 @@
 	<!--Termina Modal de información de pins-->
 	</div>
 
-	<div class="center hiddenSection" id="Informacion">
-		<h1>Conoce más del tema</h1>
+	<div class="center hiddenSection" id="Informacion" style="padding: 40px">
+		<h1 style="margin-bottom: 50px">Conoce más del tema</h1>
 		<legend>Qué es fresado?</legend>
 		<div>
-			<p style="padding: 50px; font-size: 1.2em">El fresado consiste principalmente en el corte del material que se mecaniza con una herramienta rotativa de varios filos, que se llaman dientes, labios o plaquitas de metal duro, que ejecuta movimientos en casi cualquier dirección de los tres ejes posibles en los que se puede desplazar la mesa donde va fijada la pieza que se mecaniza.
+			<p style="padding: 50px; font-size: 1.2em; text-align: justify;">El fresado consiste principalmente en el corte del material que se mecaniza con una herramienta rotativa de varios filos, que se llaman dientes, labios o plaquitas de metal duro, que ejecuta movimientos en casi cualquier dirección de los tres ejes posibles en los que se puede desplazar la mesa donde va fijada la pieza que se mecaniza.
 			Con el uso creciente de las fresadoras de control numérico están aumentando las operaciones de fresado que se pueden realizar con este tipo de máquinas, siendo así que el fresado se ha convertido en un método polivalente de mecanizado. El desarrollo de las herramientas ha contribuido también a crear nuevas posibilidades de fresado además de incrementar de forma considerable la productividad, la calidad y exactitud de las operaciones realizadas.</p>
 		</div>
 		<legend>Qué es torneado?</legend>
 		<div>
-			<p style="padding: 50px; font-size: 1.2em">El torneado es un proceso de mecanizado utilizado para hacer piezas cilíndricas, en el cual la herramienta de corte se mueve de forma lineal mientras la pieza de trabajo gira. Comúnmente realizado con un torno, el torneado reduce el diámetro de una pieza de trabajo, por lo general a una dimensión especificada, y le da un acabado liso a la pieza. Un centro de torneado es un torno con un control numérico computarizado. Los centros de torneado sofisticados también pueden realizar una gran variedad de operaciones de fresado y taladrado.</p>
+			<p style="padding: 50px; font-size: 1.2em; text-align: justify;">El torneado es un proceso de mecanizado utilizado para hacer piezas cilíndricas, en el cual la herramienta de corte se mueve de forma lineal mientras la pieza de trabajo gira. Comúnmente realizado con un torno, el torneado reduce el diámetro de una pieza de trabajo, por lo general a una dimensión especificada, y le da un acabado liso a la pieza. Un centro de torneado es un torno con un control numérico computarizado. Los centros de torneado sofisticados también pueden realizar una gran variedad de operaciones de fresado y taladrado.</p>
+		</div>
+		<legend>Refrigerantes</legend>
+		<div>
+			<p style="padding: 50px; font-size: 1.2em">Los refrigerantes en el mecanizado tienen distintas funciones:</p>
+		</div>
+		<div class="row">
+			<div class="col-xs-6">
+				<h4>Acción de enfriamiento</h4>
+				<p style="text-align: justify;">El calor generado durante el mecanizado se debe al impacto del filo con la pieza de trabajo y el roce con las virutas sobre la superficie del inserto. Este calor suaviza el filo y acelera el desgaste de la herramienta, o causa cambios en las dimensiones de la pieza de trabajo debido a la expansión térmica. Al aplicar refrigerante, se evita que el calor se concentre en la herramienta y la pieza de trabajo; esto resulta en una prolongación de la durabilidad de la herramienta y su exactitud.</p>
+			</div>
+			<div class="col-xs-6">
+				<h4>Acción de lubricación</h4>
+				<p style="text-align: justify;">Si las virutas generadas se deslizan por la superficie del lado principal, entonces problemas tales como deformación del filo y soldaduras pueden ser eliminados y la durabilidad puede ser prolongada. Además, la exactitud dimensional de la pieza mecanizada es estabilizada. Al aplicar refrigerante, se generará una película de lubricación entre las virutas y el filo. Esta película permite que las virutas se deslicen por la superficie de la herramienta con facilidad, protegiendo el filo.</p>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-xs-6">
+				<h4>Acción de infiltración</h4>
+				<p style="text-align: justify;">El refrigerante se infiltra, se escurre, entre el filo de la herramienta, sus lados y la pieza de trabajo. Esta acción produce refrigeración y lubricidad.</p>
+			</div>
+			<div class="col-xs-6">
+				<h4>Acción de despeje</h4>
+				<p style="text-align: justify;">Se refiere a acción de despeje cuando la fuerza o presión del refrigerante es utilizada para dirigir físicamente o evacuar las virutas a medida que se generan. Cuando se realiza perforado utilizando brocas cañón, los refrigerantes utilizados necesitan tener un nivel de viscosidad moderado.</p>
+			</div>
 		</div>
 		<legend>Códigos G y M</legend>
-		<div class="col-xs-6">
-			<h4>Codigos G</h4>
-			<div style="text-align: left; margin-top: 30px; margin: 20px">
-			<p><b>G00</b>	Movimiento rápido de posicionamiento</p>
-			<p><b>G01</b>	Interpolación lineal</p>
-			<p><b>G02</b>     Interpolación circular a favor de las manecillas del reloj “R” I, J, K</p>
-			<p><b>G03</b>   	Interpolación circular en sentido opuesto de las manecillas del reloj “R” I, J, K</p>
-			<p><b>G04</b>   	Tiempo de espera P(segundos)</p>
-			<p><b>G17</b>	Selección del plano XY</p>
-			<p><b>G18</b>	Selección del plano ZX</p>
-			<p><b>G19</b>	Selección del plano YZ</p>
-			<p><b>G20</b>	Entrada datos (pulgadas)</p>
-			<p><b>G21</b>   	Entrada datos (mm)</p>
-			<p><b>G28 </b>   Movimiento a la posición referencia (home)</p>
-			<p><b>G29</b>	Regreso al último punto de trabajo (de home al último punto)</p>
-			<p><b>G40</b>	Cancela la compensación en diámetro</p>
-			<p><b>G41</b>	Compensación a la izquierda del cortador</p>
-			<p><b>G42</b>	Compensación a la derecha del cortador</p>
-			<p><b>G43</b>  	Compensación de la herramienta en altura (fresadora)</p>
-			<p><b>G49</b>	Cancela compensación longitudinal del cortador</p>
-			<p><b>G53</b>	Programación respecto al cero de maquina</p>
-			<p><b>G54</b>   	Activa el cero de pieza</p>
-			<p><b>G55</b>	Activa el cero de pieza</p>
-			<p><b>G56</b>	Activa el cero de pieza</p>
-			<p><b>G57</b>	Activa el cero de pieza</p>
-			<p><b>G58</b>	Activa el cero de pieza</p>
-			<p><b>G59</b>	Activa el cero de pieza</p>
-			<p><b>G73</b>	Ciclo de taladrado con retracción incremental (X Y Z R Q F)</p>
-			<p><b>G80</b>	Cancela los ciclos de taladrado (G81, G82, G83 y G73) (X Y Z R Q F)</p>
-			<p><b>G81</b>	Ciclo de taladrado (Baja como G01 y regresa con un G00) (X Y Z R F)</p>
-			<p><b>G82</b>	Ciclo de taladrado con pausa (para remover la viruta) (X Y Z R P F)</p>
-			<p><b>G83</b>	Ciclo de taladrado profundo (X Y Z R Q F)</p>
-			<p><b>G84</b>	Ciclo de machuelado (rosca) a favor de las manecillas</p>
-			<p><b>G90</b>   	Activación del valor absoluto</p>
-			<p><b>G91</b>   	Activación del valor incremental</p>
-			<p><b>G94</b>	Avance en mm/min</p>
-			<p><b>G98</b>	Retorno a un punto inicial correspondiente a un ciclo determinado </p>
-			<p><b>G99</b>	Retorno al punto de retroceso de un ciclo determinado</p>
+		<div class="row">
+			<div class="col-xs-6">
+				<h4>Codigos G</h4>
+				<div style="text-align: left; margin-top: 30px; margin: 20px">
+				<p><b>G00</b>	Movimiento rápido de posicionamiento</p>
+				<p><b>G01</b>	Interpolación lineal</p>
+				<p><b>G02</b>     Interpolación circular a favor de las manecillas del reloj “R” I, J, K</p>
+				<p><b>G03</b>   	Interpolación circular en sentido opuesto de las manecillas del reloj “R” I, J, K</p>
+				<p><b>G04</b>   	Tiempo de espera P(segundos)</p>
+				<p><b>G17</b>	Selección del plano XY</p>
+				<p><b>G18</b>	Selección del plano ZX</p>
+				<p><b>G19</b>	Selección del plano YZ</p>
+				<p><b>G20</b>	Entrada datos (pulgadas)</p>
+				<p><b>G21</b>   	Entrada datos (mm)</p>
+				<p><b>G28 </b>   Movimiento a la posición referencia (home)</p>
+				<p><b>G29</b>	Regreso al último punto de trabajo (de home al último punto)</p>
+				<p><b>G40</b>	Cancela la compensación en diámetro</p>
+				<p><b>G41</b>	Compensación a la izquierda del cortador</p>
+				<p><b>G42</b>	Compensación a la derecha del cortador</p>
+				<p><b>G43</b>  	Compensación de la herramienta en altura (fresadora)</p>
+				<p><b>G49</b>	Cancela compensación longitudinal del cortador</p>
+				<p><b>G53</b>	Programación respecto al cero de maquina</p>
+				<p><b>G54</b>   	Activa el cero de pieza</p>
+				<p><b>G55</b>	Activa el cero de pieza</p>
+				<p><b>G56</b>	Activa el cero de pieza</p>
+				<p><b>G57</b>	Activa el cero de pieza</p>
+				<p><b>G58</b>	Activa el cero de pieza</p>
+				<p><b>G59</b>	Activa el cero de pieza</p>
+				<p><b>G73</b>	Ciclo de taladrado con retracción incremental (X Y Z R Q F)</p>
+				<p><b>G80</b>	Cancela los ciclos de taladrado (G81, G82, G83 y G73) (X Y Z R Q F)</p>
+				<p><b>G81</b>	Ciclo de taladrado (Baja como G01 y regresa con un G00) (X Y Z R F)</p>
+				<p><b>G82</b>	Ciclo de taladrado con pausa (para remover la viruta) (X Y Z R P F)</p>
+				<p><b>G83</b>	Ciclo de taladrado profundo (X Y Z R Q F)</p>
+				<p><b>G84</b>	Ciclo de machuelado (rosca) a favor de las manecillas</p>
+				<p><b>G90</b>   	Activación del valor absoluto</p>
+				<p><b>G91</b>   	Activación del valor incremental</p>
+				<p><b>G94</b>	Avance en mm/min</p>
+				<p><b>G98</b>	Retorno a un punto inicial correspondiente a un ciclo determinado </p>
+				<p><b>G99</b>	Retorno al punto de retroceso de un ciclo determinado</p>
+				</div>
+			</div>
+			<div class="col-xs-6">
+				<h4>Codigos M</h4>
+				<div style="text-align: left; margin-top: 30px; margin: 20px">
+					<p><b>M00</b>    Paro incondicional del programa</p>
+					<p><b>M01</b>    Paro opcional del programa</p>
+					<p><b>M03</b>    Giro del husillo (S) A favor de las manecillas</p>
+					<p><b>M04</b>    Giro del husillo (S) En contra de las manecillas</p>
+					<p><b>M05</b>    Paro del husillo</p>
+					<p><b>M06</b>    Cambio de la herramienta</p>
+					<p><b>M08</b>     Encender refrigerante</p>
+					<p><b>M09</b>   Apagar refrigerante</p>
+					<p><b>M02 / M30</b>   Fin del programa</p>
+					<p><b>M47</b>   Abrir puerta</p>
+					<p><b>M46</b>   Cerrar puerta</p>
+					<p><b>M41</b>   Abrir prensa</p>
+					<p><b>M40</b>   Cerrar prensa</p>
+					<p><b>M98</b>   Llamar a subprograma externo</p>
+					<p><b>M97</b>   Llamar a subprograma local</p>
+					<p><b>M99</b>   Regreso a programa principal</p>
+				</div>
 			</div>
 		</div>
-		<div class="col-xs-6">
-			<h4>Codigos M</h4>
-			<div style="text-align: left; margin-top: 30px; margin: 20px">
-				<p><b>M00</b>    Paro incondicional del programa</p>
-				<p><b>M01</b>    Paro opcional del programa</p>
-				<p><b>M03</b>    Giro del husillo (S) A favor de las manecillas</p>
-				<p><b>M04</b>    Giro del husillo (S) En contra de las manecillas</p>
-				<p><b>M05</b>    Paro del husillo</p>
-				<p><b>M06</b>    Cambio de la herramienta</p>
-				<p><b>M08</b>     Encender refrigerante</p>
-				<p><b>M09</b>   Apagar refrigerante</p>
-				<p><b>M02 / M30</b>   Fin del programa</p>
-				<p><b>M47</b>   Abrir puerta</p>
-				<p><b>M46</b>   Cerrar puerta</p>
-				<p><b>M41</b>   Abrir prensa</p>
-				<p><b>M40</b>   Cerrar prensa</p>
-				<p><b>M98</b>   Llamar a subprograma externo</p>
-				<p><b>M97</b>   Llamar a subprograma local</p>
-				<p><b>M99</b>   Regreso a programa principal</p>
-			</div>
+
+
+		<div>
+			<legend>Referencias</legend>
+			<p>Groover, M. P. (2016). Automation, production systems, and computer-integrated manufacturing. Harlow: Pearson Education.</p>
+			<p>Maquinas, Herramientas y CNC. (2011). Refrigerantes. [online] Available at: https://pyrosisproyect.wordpress.com/2011/09/09/refrigerantes/ [Accessed 30 Apr. 2018].</p>
 		</div>
 	</div>
 

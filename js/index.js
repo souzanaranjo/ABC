@@ -265,6 +265,79 @@ function graficaHerramientas() {
 	}
 }
 
+function graficaMetodos() {
+
+	var mexico = {lat: 22.686613, lng: -100.316116};
+    var map = new google.maps.Map(document.getElementById('map'), {
+          zoom: 6,
+          center: mexico
+        });
+	var Metodos = [
+	{
+		nombre: "Alta Tecnologia En Mecanizado S.A. de C.V.",
+		direccion: "Dr. Mora Ote., México, Del Nte., 64500 Monterrey, N.L.",
+		telefono: '01 81 8331 1040',
+		pagina: 'http://www.atm-mx.com/',
+		lat: 25.705208,
+		lng: -100.309080
+	},
+	{
+		nombre: "FamaTools.",
+		direccion: "Calle C No. 18, Col. Parque Industrial Puebla 2000, Puebla, Pue 72225",
+		telefono: '(222) 28 28 893',
+		pagina: 'https://www.famatools.com',
+		lat: 19.074235,
+		lng: -98.153111
+	},
+	{
+		nombre: "Hainbuch Mexico S. de R. L. de C. V.",
+		direccion: "38000, Blvrd Adolfo López Mateos 901, Col. Centro, Celaya, Gto.",
+		telefono: '01 461 216 4064',
+		pagina: 'http://www.hainbuch.es/es/home/hainbuch-mexico.html',
+		lat: 20.519993,
+		lng: -100.823906
+	},
+	{
+		nombre: "Roehm Products México S. de R.L. de C.V.",
+		direccion: "Emilio Garza Melendez 6606, Campestre Mederos, 64970 Monterrey, N.L.",
+		telefono: '01 81 9627 0686',
+		pagina: 'http://www.rohm-products.com/index.php?id=home0&L=1',
+		lat: 25.598005,
+		lng: -100.264201
+	}
+	];
+	var marker = [];
+	for(var i = 0; i < Metodos.length; i++) {
+		marker[i] = new google.maps.Marker({
+                    position : new google.maps.LatLng(Metodos[i].lat, Metodos[i].lng),
+                    map: map
+		});
+
+		google.maps.event.addListener(marker[i], 'click', (function(marker, i) {
+                    return function(){
+                    	$("html, body").animate({ scrollTop: $(document).height() }, "slow");
+                        empresa = Metodos[i];
+                        var infoEmpresa = getInfoEmpresa(empresa);
+                        $("#modalText").empty().append(infoEmpresa);
+                        $("#headerModal").empty().append(empresa.nombre);
+                        var modal = document.getElementById('myModal');
+                        // Get the <span> element that closes the modal
+                        var span = document.getElementsByClassName("close")[0];
+                        modal.style.display = "block";
+                        span.onclick = function(){
+                            modal.style.display = "none";
+                        }
+                        // When the user clicks anywhere outside of the modal, close it
+                        window.onclick = function(event) {
+                            if (event.target == modal) {
+                                modal.style.display = "none";
+                            }
+                        } 
+                    }
+         })(marker[i], i));
+	}
+}
+
 function getInfoEmpresa(empresa) {
 	var infoEmpresa =
 	'<div class="center">' +
