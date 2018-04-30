@@ -20,7 +20,11 @@
 
 .correoContacto {
 	font-size: 1.3em;
-	margin-bottom: 30px
+}
+
+.infoContacto {
+	font-size: 1.1em;
+	margin-bottom: 30px;
 }
 
 .inputcalcula {
