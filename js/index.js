@@ -21,10 +21,28 @@ function calculavc() {
 	$("#resultadob").empty().append("Resultado = " + resb.toFixed(2) + " metros/minuto");
 }
 
+function calculatm() {
+	var distancia = $("#inputc1").val();
+	var vf = $("#inputc2").val();
+
+	var resc = (distancia/vf);
+	$("#resultadoc").empty().append("Resultado = " + resc.toFixed(2) + " minutos");
+}
+
+function calculavr() {
+	var ae = $("#inputd1").val();
+	var ap = $("#inputd2").val();
+	var vf = $("#inputd3").val();
+
+	var resd = ae * ap * vf;
+	$("#resultadod").empty().append("Resultado = " + resd.toFixed(2) + " m3/min");
+}
+
 function rpm() {
 	$("#rpm").show();
 	$("#vc").hide();
-
+	$("#tm").hide();
+	$("#vr").hide();
 }
 
 
@@ -32,7 +50,22 @@ function rpm() {
 function vc() {
 	$("#vc").show();
 	$("#rpm").hide();
+	$("#tm").hide();
+	$("#vr").hide();
+}
 
+function tm() {
+	$("#vc").hide();
+	$("#rpm").hide();
+	$("#tm").show();
+	$("#vr").hide();
+}
+
+function vr() {
+	$("#vc").hide();
+	$("#rpm").hide();
+	$("#tm").hide();
+	$("#vr").show();
 }
 
 function menuFunctionality(){

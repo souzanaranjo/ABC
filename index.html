@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>ABC</title>
+	<title>MAQUIMEX</title>
 	<meta charset="UTF-8">
 	<link rel="stylesheet" type="text/css" href="css/index.css">
 	<!-- Latest compiled and minified CSS -->
@@ -12,20 +12,20 @@
 	<nav class="navbar navbar-inverse" style="margin: 0; float: top">
 	  <div class="container-fluid">
 	    <div class="navbar-header">
-	      <a class="navbar-brand" href="#">Proyecto Conexion</a>
+	      <a class="navbar-brand" href=".">MAQUIMEX</a>
 	    </div>
 	    <ul id="navprincipal" class="nav navbar-nav" style="font-size: 1.3em">
 	      <li class="Inicio active selected"><a href=".">Inicio</a></li>
 	      <li class="Calculadora"><a href="#">Calculadora</a></li>
-	      <li class="Ubicacion"><a href="#">Ubicacion</a></li>
-	      <li class="Informacion"><a  href="#">Informacion</a></li>
+	      <li class="Ubicacion"><a href="#">Directorio</a></li>
+	      <li class="Informacion"><a  href="#">Información</a></li>
 	      <li class="Contacto"><a href="#">Contacto</a></li>
 	    </ul>
 	  </div>
 	</nav>
 
 	<div id="Inicio" class='center currentSelection'>
-		<div class="container" style="width: 100%; margin: 0px; padding: 0">
+		<div class="container" style="width: 100%; height: 100%; margin: 0px; padding: 0">
 		  <div id="myCarousel" class="carousel slide" data-ride="carousel">
 		    <!-- Indicators -->
 		    <ol class="carousel-indicators">
@@ -39,11 +39,11 @@
 		    <!-- Wrapper for slides -->
 		    <div class="carousel-inner">
 		      <div class="item active">
-		        <img src="images/FRESADO1.jpg" alt="Fresado 1" style="width:100%;">
+		        <img src="images/FRESADO2.jpg" alt="Fresado 1" style="width:100%;">
 		      </div>
 
 		      <div class="item">
-		        <img src="images/FRESADO2.jpg" alt="Fresado 2" style="width:100%;">
+		        <img src="images/FRESADO1.jpg" alt="Fresado 2" style="width:100%;">
 		      </div>
 		    
 		      <div class="item">
@@ -70,38 +70,78 @@
 	</div>
 
 	<div class="center hiddenSection" id="Calculadora">
-		<h1>Calcula</h1>
-		<legend>Qué quieres calcular?</legend>
-		<button class="btn btn-default botonesmapa" onclick="rpm()">Revoluciones por minuto</button>
-		<button class="btn btn-default botonesmapa" onclick="vc()">Velocidad de corte</button>
+		<h1 style="margin-bottom: 30px;">Calcula</h1>
+		<legend>¿Qué quieres calcular?</legend>
+		<button class="btn btn-primary botonesmapa" onclick="rpm()">Revoluciones por minuto</button>
+		<button class="btn btn-primary botonesmapa" onclick="vc()">Velocidad de corte</button>
+		<button class="btn btn-primary botonesmapa" onclick="tm()">Tiempo de maquinado</button>
+		<button class="btn btn-primary botonesmapa" onclick="vr()">Volumen de remoción de material</button>
+
 
 
 		<div id="rpm" style="margin-top: 30px" class="hiddenSection">
 			<legend>Calculo de Revoluciones por minuto</legend>
-			Diametro:
-			<input class="inputcalcula" placeholder="Diametro en milimetros..." id="diametroa" type="number">
+			<div class="alinear">
+			Diámetro:
+			<input class="inputcalcula" placeholder="Diámetro en mm..." id="diametroa" type="number">
+			<br>
 			Velocidad de corte:
-			<input class="inputcalcula" placeholder="Velocidad de corte en metros sobre minuto..." id="inputvc" type="number">
-			<br />
+			<input class="inputcalcula" placeholder="Velocidad en m/min..." id="inputvc" type="number">
+			</div>
+			<br>
 			<button class="center btn btn-success" onclick="calcularpm()">Calcula</button>
 			<p id="resultadoa" class="center res"></p>
 		</div>
 
 		<div id="vc" style="margin-top: 30px" class="hiddenSection">
 			<legend>Calculo de Velocidad de corte</legend>
-			Diametro:
-			<input class="inputcalcula" placeholder="Diametro en milimetros..." id="diametrob" type="number">
+			<dir class="alinear">
+			Diámetro:
+			<input class="inputcalcula" placeholder="Diámetro en mm..." id="diametrob" type="number">
+			<br>
 			Revoluciones por minuto:
 			<input class="inputcalcula" placeholder="Revoluciones por minuto..." id="inputrpm" type="number">
+			</dir>
 			<br />
 			<button class="center btn btn-success" onclick="calculavc()">Calcula</button>
 			<p id="resultadob" class="center res"></p>
+		</div>
+
+		<div id="tm" style="margin-top: 30px" class="hiddenSection">
+			<legend>Tiempo de maquinado</legend>
+			<div class="alinear">
+			Distancia recorrida:
+			<input class="inputcalcula" placeholder="Distancia en mm..." id="inputc1" type="number">
+			<br>
+			Velocidad de desplazamiento:
+			<input class="inputcalcula" placeholder="Velocidad en mm/min..." id="inputc2" type="number">
+			</div>
+			<br />
+			<button class="center btn btn-success" onclick="calculatm()">Calcula</button>
+			<p id="resultadoc" class="center res"></p>
+		</div>
+
+		<div id="vr" style="margin-top: 30px" class="hiddenSection">
+			<legend>Volumen de remoción de material</legend>
+			<dir class="alinear">
+			Diámetro de la herramienta:
+			<input class="inputcalcula" placeholder="Diámetro en mm..." id="inputd1" type="number">
+			<br>
+			Profundidad de corte:
+			<input class="inputcalcula" placeholder="Profundidad en mm..." id="inputd2" type="number">
+			<br>
+			Velocidad de desplazamiento:
+			<input class="inputcalcula" placeholder="Velocidad en mm/min..." id="inputd3" type="number">
+			</dir>
+			<br />
+			<button class="center btn btn-success" onclick="calculavr()">Calcula</button>
+			<p id="resultadod" class="center res"></p>
 		</div>
 		
 	</div>
 
 	<div class="center hiddenSection" id="Ubicacion">
-		<h1 style="margin-bottom: 50px">Dónde encontrar lo que buscas?</h1>
+		<h1 style="margin-bottom: 50px">¿Dónde encontrar lo que buscas?</h1>
 		
 		<button class="btn btn-primary botonesmapa" onclick="graficaMaquinaria()">Maquinaria</button>
 		<button class="btn btn-primary botonesmapa" onclick="graficaHerramientas()">Herramientas</button>
@@ -129,37 +169,37 @@
 
 	<div class="center hiddenSection" id="Informacion" style="padding: 40px">
 		<h1 style="margin-bottom: 50px">Conoce más del tema</h1>
-		<legend>Qué es fresado?</legend>
+		<legend>¿Qué es fresado?</legend>
 		<div>
 			<p style="padding: 50px; font-size: 1.2em; text-align: justify;">El fresado consiste principalmente en el corte del material que se mecaniza con una herramienta rotativa de varios filos, que se llaman dientes, labios o plaquitas de metal duro, que ejecuta movimientos en casi cualquier dirección de los tres ejes posibles en los que se puede desplazar la mesa donde va fijada la pieza que se mecaniza.
 			Con el uso creciente de las fresadoras de control numérico están aumentando las operaciones de fresado que se pueden realizar con este tipo de máquinas, siendo así que el fresado se ha convertido en un método polivalente de mecanizado. El desarrollo de las herramientas ha contribuido también a crear nuevas posibilidades de fresado además de incrementar de forma considerable la productividad, la calidad y exactitud de las operaciones realizadas.</p>
 		</div>
-		<legend>Qué es torneado?</legend>
+		<legend>¿Qué es torneado?</legend>
 		<div>
 			<p style="padding: 50px; font-size: 1.2em; text-align: justify;">El torneado es un proceso de mecanizado utilizado para hacer piezas cilíndricas, en el cual la herramienta de corte se mueve de forma lineal mientras la pieza de trabajo gira. Comúnmente realizado con un torno, el torneado reduce el diámetro de una pieza de trabajo, por lo general a una dimensión especificada, y le da un acabado liso a la pieza. Un centro de torneado es un torno con un control numérico computarizado. Los centros de torneado sofisticados también pueden realizar una gran variedad de operaciones de fresado y taladrado.</p>
 		</div>
-		<legend>Refrigerantes</legend>
+		<legend style="margin-bottom: -30px">Refrigerantes</legend>
 		<div>
 			<p style="padding: 50px; font-size: 1.2em">Los refrigerantes en el mecanizado tienen distintas funciones:</p>
 		</div>
 		<div class="row">
 			<div class="col-xs-6">
 				<h4>Acción de enfriamiento</h4>
-				<p style="text-align: justify;">El calor generado durante el mecanizado se debe al impacto del filo con la pieza de trabajo y el roce con las virutas sobre la superficie del inserto. Este calor suaviza el filo y acelera el desgaste de la herramienta, o causa cambios en las dimensiones de la pieza de trabajo debido a la expansión térmica. Al aplicar refrigerante, se evita que el calor se concentre en la herramienta y la pieza de trabajo; esto resulta en una prolongación de la durabilidad de la herramienta y su exactitud.</p>
+				<p style="text-align: justify; font-size: 1.2em; padding: 20px">El calor generado durante el mecanizado se debe al impacto del filo con la pieza de trabajo y el roce con las virutas sobre la superficie del inserto. Este calor suaviza el filo y acelera el desgaste de la herramienta, o causa cambios en las dimensiones de la pieza de trabajo debido a la expansión térmica. Al aplicar refrigerante, se evita que el calor se concentre en la herramienta y la pieza de trabajo; esto resulta en una prolongación de la durabilidad de la herramienta y su exactitud.</p>
 			</div>
 			<div class="col-xs-6">
 				<h4>Acción de lubricación</h4>
-				<p style="text-align: justify;">Si las virutas generadas se deslizan por la superficie del lado principal, entonces problemas tales como deformación del filo y soldaduras pueden ser eliminados y la durabilidad puede ser prolongada. Además, la exactitud dimensional de la pieza mecanizada es estabilizada. Al aplicar refrigerante, se generará una película de lubricación entre las virutas y el filo. Esta película permite que las virutas se deslicen por la superficie de la herramienta con facilidad, protegiendo el filo.</p>
+				<p style="text-align: justify; font-size: 1.2em; padding: 20px">Si las virutas generadas se deslizan por la superficie del lado principal, entonces problemas tales como deformación del filo y soldaduras pueden ser eliminados y la durabilidad puede ser prolongada. Además, la exactitud dimensional de la pieza mecanizada es estabilizada. Al aplicar refrigerante, se generará una película de lubricación entre las virutas y el filo. Esta película permite que las virutas se deslicen por la superficie de la herramienta con facilidad, protegiendo el filo.</p>
 			</div>
 		</div>
 		<div class="row">
 			<div class="col-xs-6">
 				<h4>Acción de infiltración</h4>
-				<p style="text-align: justify;">El refrigerante se infiltra, se escurre, entre el filo de la herramienta, sus lados y la pieza de trabajo. Esta acción produce refrigeración y lubricidad.</p>
+				<p style="text-align: justify; font-size: 1.2em; padding: 20px">El refrigerante se infiltra, se escurre, entre el filo de la herramienta, sus lados y la pieza de trabajo. Esta acción produce refrigeración y lubricidad.</p>
 			</div>
 			<div class="col-xs-6">
 				<h4>Acción de despeje</h4>
-				<p style="text-align: justify;">Se refiere a acción de despeje cuando la fuerza o presión del refrigerante es utilizada para dirigir físicamente o evacuar las virutas a medida que se generan. Cuando se realiza perforado utilizando brocas cañón, los refrigerantes utilizados necesitan tener un nivel de viscosidad moderado.</p>
+				<p style="text-align: justify; font-size: 1.2em; padding: 20px">Se refiere a acción de despeje cuando la fuerza o presión del refrigerante es utilizada para dirigir físicamente o evacuar las virutas a medida que se generan. Cuando se realiza perforado utilizando brocas cañón, los refrigerantes utilizados necesitan tener un nivel de viscosidad moderado.</p>
 			</div>
 		</div>
 		<legend>Códigos G y M</legend>
@@ -169,15 +209,15 @@
 				<div style="text-align: left; margin-top: 30px; margin: 20px">
 				<p><b>G00</b>	Movimiento rápido de posicionamiento</p>
 				<p><b>G01</b>	Interpolación lineal</p>
-				<p><b>G02</b>     Interpolación circular a favor de las manecillas del reloj “R” I, J, K</p>
-				<p><b>G03</b>   	Interpolación circular en sentido opuesto de las manecillas del reloj “R” I, J, K</p>
-				<p><b>G04</b>   	Tiempo de espera P(segundos)</p>
+				<p><b>G02</b>   Interpolación circular a favor de las manecillas del reloj</p>
+				<p><b>G03</b>   Interpolación circular en sentido opuesto de las manecillas del reloj </p>
+				<p><b>G04</b>   Tiempo de espera P(segundos)</p>
 				<p><b>G17</b>	Selección del plano XY</p>
 				<p><b>G18</b>	Selección del plano ZX</p>
 				<p><b>G19</b>	Selección del plano YZ</p>
 				<p><b>G20</b>	Entrada datos (pulgadas)</p>
-				<p><b>G21</b>   	Entrada datos (mm)</p>
-				<p><b>G28 </b>   Movimiento a la posición referencia (home)</p>
+				<p><b>G21</b>   Entrada datos (mm)</p>
+				<p><b>G28</b>   Movimiento a la posición referencia (home)</p>
 				<p><b>G29</b>	Regreso al último punto de trabajo (de home al último punto)</p>
 				<p><b>G40</b>	Cancela la compensación en diámetro</p>
 				<p><b>G41</b>	Compensación a la izquierda del cortador</p>
@@ -185,20 +225,20 @@
 				<p><b>G43</b>  	Compensación de la herramienta en altura (fresadora)</p>
 				<p><b>G49</b>	Cancela compensación longitudinal del cortador</p>
 				<p><b>G53</b>	Programación respecto al cero de maquina</p>
-				<p><b>G54</b>   	Activa el cero de pieza</p>
+				<p><b>G54</b>   Activa el cero de pieza</p>
 				<p><b>G55</b>	Activa el cero de pieza</p>
 				<p><b>G56</b>	Activa el cero de pieza</p>
 				<p><b>G57</b>	Activa el cero de pieza</p>
 				<p><b>G58</b>	Activa el cero de pieza</p>
 				<p><b>G59</b>	Activa el cero de pieza</p>
-				<p><b>G73</b>	Ciclo de taladrado con retracción incremental (X Y Z R Q F)</p>
-				<p><b>G80</b>	Cancela los ciclos de taladrado (G81, G82, G83 y G73) (X Y Z R Q F)</p>
-				<p><b>G81</b>	Ciclo de taladrado (Baja como G01 y regresa con un G00) (X Y Z R F)</p>
-				<p><b>G82</b>	Ciclo de taladrado con pausa (para remover la viruta) (X Y Z R P F)</p>
-				<p><b>G83</b>	Ciclo de taladrado profundo (X Y Z R Q F)</p>
+				<p><b>G73</b>	Ciclo de taladrado con retracción incremental </p>
+				<p><b>G80</b>	Cancela los ciclos de taladrado (G81, G82, G83 y G73) </p>
+				<p><b>G81</b>	Ciclo de taladrado (Baja como G01 y regresa con un G00) </p>
+				<p><b>G82</b>	Ciclo de taladrado con pausa (para remover la viruta) </p>
+				<p><b>G83</b>	Ciclo de taladrado profundo </p>
 				<p><b>G84</b>	Ciclo de machuelado (rosca) a favor de las manecillas</p>
-				<p><b>G90</b>   	Activación del valor absoluto</p>
-				<p><b>G91</b>   	Activación del valor incremental</p>
+				<p><b>G90</b>   Activación del valor absoluto</p>
+				<p><b>G91</b>   Activación del valor incremental</p>
 				<p><b>G94</b>	Avance en mm/min</p>
 				<p><b>G98</b>	Retorno a un punto inicial correspondiente a un ciclo determinado </p>
 				<p><b>G99</b>	Retorno al punto de retroceso de un ciclo determinado</p>
@@ -207,13 +247,13 @@
 			<div class="col-xs-6">
 				<h4>Codigos M</h4>
 				<div style="text-align: left; margin-top: 30px; margin: 20px">
-					<p><b>M00</b>    Paro incondicional del programa</p>
-					<p><b>M01</b>    Paro opcional del programa</p>
-					<p><b>M03</b>    Giro del husillo (S) A favor de las manecillas</p>
-					<p><b>M04</b>    Giro del husillo (S) En contra de las manecillas</p>
-					<p><b>M05</b>    Paro del husillo</p>
-					<p><b>M06</b>    Cambio de la herramienta</p>
-					<p><b>M08</b>     Encender refrigerante</p>
+					<p><b>M00</b>   Paro incondicional del programa</p>
+					<p><b>M01</b>   Paro opcional del programa</p>
+					<p><b>M03</b>   Giro del husillo (S) A favor de las manecillas</p>
+					<p><b>M04</b>   Giro del husillo (S) En contra de las manecillas</p>
+					<p><b>M05</b>   Paro del husillo</p>
+					<p><b>M06</b>   Cambio de la herramienta</p>
+					<p><b>M08</b>   Encender refrigerante</p>
 					<p><b>M09</b>   Apagar refrigerante</p>
 					<p><b>M02 / M30</b>   Fin del programa</p>
 					<p><b>M47</b>   Abrir puerta</p>
