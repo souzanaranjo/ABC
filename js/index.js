@@ -17,8 +17,10 @@ function calculavc() {
 	var rpm = $("#inputrpm").val();
 
 	var resb = (3.1416 * diametrob * rpm) / 1000;
+	var resb2 = (3.1416 * diametrob * rpm) / 10 / 2.54;
 
 	$("#resultadob").empty().append("Resultado = " + resb.toFixed(2) + " metros/minuto");
+	$("#resultadob").append(" = " + resb2.toFixed(2) + " pulgadas/minuto");
 }
 
 function calculatm() {
@@ -35,7 +37,9 @@ function calculavr() {
 	var vf = $("#inputd3").val();
 
 	var resd = ae * ap * vf;
-	$("#resultadod").empty().append("Resultado = " + resd.toFixed(2) + " m3/min");
+	var resd2 = resd * 61023.7;
+	$("#resultadod").empty().append("Resultado = " + resd.toFixed(2) + " m^3/min");
+	$("#resultadod").append(" = " + resd2 + " pulgadas^3/min");
 }
 
 function rpm() {
