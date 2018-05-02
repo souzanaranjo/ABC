@@ -257,7 +257,7 @@ function graficaHerramientas() {
 			nombre: "Travers Tools",
 			direccion: "Av. Alfonso Reyes No. 2823, Col. Del Prado, Monterrey, N.L. 64410",
 			telefono: '01 81 83 80 66 10',
-			pagina: '01 81 83 80 66 10',
+			pagina: 'http://www.traverstool.com.mx/',
 			lat: 25.703281,
 			lng: -100.315383
 		},	
